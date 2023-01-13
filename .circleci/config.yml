@@ -1,3 +1,4 @@
+working_dir: &working_dir ~/app
 version: 2
 jobs:
   build:
