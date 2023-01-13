@@ -17,19 +17,19 @@ jobs:
             echo 'export IMAGE_NAME=python-circleci-docker' >> $BASH_ENV 
             virtualenv helloworld
             . helloworld/bin/activate
-            python run.py
+            python light.py
       - run:
           name: Run Tests
           command: |
             . helloworld/bin/activate
-            python run.py
+            python light.py
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
           name: Build and push Docker image
           command: |
             . helloworld/bin/activate
-            python run.py
+            python light.py
             pyinstaller -F hello_world.py
             docker build -t $DOCKER_LOGIN/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
@@ -37,5 +37,5 @@ jobs:
       - run:
           name: Deploy app to Linode Producrion Server via Docker
           command: |
-            python run.py
+            python light.py
             ssh -o StrictHostKeyChecking=no root@fosscon.punkdata.org "/bin/bash ./deploy_app.sh $DOCKER_LOGIN/$IMAGE_NAME:$TAG"
